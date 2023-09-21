@@ -1,38 +1,166 @@
+/* App.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  
+}
+
 .App {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgb(227,208,216);
+background: radial-gradient(circle, rgba(227,208,216,1) 0%, rgba(158,102,227,1) 100%);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #492279;
+}
+
+.search-bar {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type="text"] {
+  padding: 10px;
+  width: 60%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #492279;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pokemon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr); /* Display 4 cards in a row */
+  gap: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.pokemon-card {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5; /* Set the background color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column; /* Arrange content in a column layout */
+  align-items: center; /* Center content horizontally */
+  position: relative; /* Add relative positioning for the name background */
+  overflow-x: hidden;
+}
+
+.pokemon-card:hover {
+  background-color: #e0e0e0; /* Change the background color on hover */
+}
+
+.pokemon-image img {
+  max-width: 150px; /* Increase the image size */
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.pokemon-card>#name {
+  background-color: #492279; /* Set the background color for the name */
+  color: #fff; /* Set text color */
+  padding: 5px 10px; /* Add some padding to the name */
+  border-radius: 5px;
+  position: absolute; /* Set absolute positioning to cover the entire card */
+  bottom: 0; /* Position at the top of the card */
+  left: 0; /* Position at the left edge of the card */
+  right: 0;
+  width: 100%; /* Cover the entire card horizontally */
+}
+
+.pokemon-type {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.pokemon-details {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.pokemon-details h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.pokemon-image {
+  max-width: 200px;
+  height: auto;
+  margin: 10px 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Pagination styles */
+
+#pagination {
+  margin-top: 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+#previous,
+#next {
+  background-color: #492279;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 0 10px;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#previous:disabled,
+#next:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
